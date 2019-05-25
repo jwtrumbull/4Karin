@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="index.js"></script>
+	<h1 class="head">Fearless Scoot</h1>
+</head>
+<body style="background-color:orange">
+	<link rel="stylesheet" href="index.css">
+
+<div class="upload"
+<form action="upload.php" method="POST" enctype="multipart/form-data"class="submit1">
+	<input type="file" name="file" class="submit1">
+	<button type="submit" name="submit" class="submit">Upload</button>
+</form>
+</div>
+
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var imageObj1 = new Image();
+var imageObj2 = new Image();
+imageObj1.src = "heart.png"
+imageObj1.onload = function() {
+   ctx.drawImage(imageObj1, 0, 0, 500, 500);
+   imageObj2.src = "me.jpg";
+   imageObj2.onload = function() {
+		ctx.globalAlpha = 0.5;
+      ctx.drawImage(imageObj2, 0, 0, 500, 500);
+      var img = c.toDataURL("image/png");
+      document.write('<img src="' + img + '" width="328" height="526"/>');
+   }
+};
+</script>
+</body>
+</html>
